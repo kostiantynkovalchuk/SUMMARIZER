@@ -173,6 +173,7 @@ const htmlContent = `<!DOCTYPE html>
 				cursor: pointer;
 				font-size: 1rem;
 				flex: 1;
+				color: #000; /* <-- Add this line */
 			}
 
 			.button:not(:disabled):hover {
