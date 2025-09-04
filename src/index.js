@@ -106,16 +106,39 @@ const htmlContent = `<!DOCTYPE html>
 				color: var(--text-color);
 			}
 
+			/* Ensure all controls are horizontal by default */
 			.controls {
 				display: flex;
-				flex-direction: column;
+				flex-direction: row;
 				gap: 1rem;
+				width: 100%;
+			}
+
+			/* Specific styling for input section controls */
+			.section:first-child .controls {
+				display: flex;
+				flex-direction: row;
+				gap: 1rem;
+			}
+
+			/* Specific styling for output section controls */
+			#summary-content .controls {
+				display: flex;
+				flex-direction: row;
+				gap: 1rem;
+				width: 100%;
+			}
+
+			#summary-content .controls .button {
+				flex: 1;
+				min-width: 0;
 			}
 
 			.summary-length-container {
 				display: flex;
 				flex-direction: column;
 				gap: 0.5rem;
+				flex: 1;
 			}
 
 			.summary-length-group {
@@ -149,6 +172,7 @@ const htmlContent = `<!DOCTYPE html>
 				justify-content: center;
 				cursor: pointer;
 				font-size: 1rem;
+				flex: 1;
 			}
 
 			.button:not(:disabled):hover {
@@ -172,6 +196,12 @@ const htmlContent = `<!DOCTYPE html>
 				left: 0;
 				width: 100%;
 				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.summary-content {
+				display: flex;
 			}
 
 			.loading-section,
@@ -209,11 +239,11 @@ const htmlContent = `<!DOCTYPE html>
 			}
 
 			.copied {
-				background-color: var(--copied-background-color) !important;
+				background-color: var(--copied-background-color);
 			}
 
 			.failed {
-				background-color: var(--failed-background-color) !important;
+				background-color: var(--failed-background-color);
 			}
 
 			.disabled {
@@ -254,8 +284,27 @@ const htmlContent = `<!DOCTYPE html>
 					letter-spacing: 2px;
 				}
 
-				.controls {
+				/* Input section controls on mobile */
+				.section:first-child .controls {
+					display: flex;
 					flex-direction: row;
+					gap: 1rem;
+				}
+				
+				/* Output section controls on mobile */
+				#summary-content .controls {
+					display: flex;
+					flex-direction: row;
+					gap: 0.5rem;
+					width: 100%;
+					justify-content: space-between;
+				}
+
+				#summary-content .controls .button {
+					flex: 1;
+					min-width: 0;
+					padding: 0.8rem;
+					font-size: 0.9rem;
 				}
 			}
 		</style>
